@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap %}
 
 {% block main %}
@@ -15,7 +16,19 @@
             Deletar
         </a>
     {% endif %}
+
+        <button onclick="utilizouHoraExtra({{ object.id }})" class="btn btn-info" type="button">Marcar Como Utilizada</button>
+
 </form>
 
+<h2 id="horas_atualizadas">{{ object.funcionario.total_horas_extras }}</h2>
+
 <br>
+<p id="mensagem"></p>
+{% endblock %}
+
+{% block static %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/funcoes-ajax.js' %}"></script>
+
 {% endblock %}
